@@ -1,0 +1,25 @@
+mode: 'development'/'production' - указывает веб-пакету, что необходимо соответствующим образом использовать встроенные оптимизации
+
+context: path.resolve('./', 'webpack', 'src') - входная точка. с какой директорией webpack будет работать
+
+output: { - куда выгружать данные
+        filename: '[name].[contenthash].js', - имя файла
+        path: path.join(path.resolve(), 'webpack', 'dist'), - путь для выгрузки
+}
+
+optimization: { - оптимизация, и настройки оптимизации
+    splitChunks: { 
+        chunks: 'all'
+    }
+}
+
+plugins: - определённые дополнения к webpack'у, делают то, что не умеет webpack (плагины должны быть классами)
+
+module: - модули
+        rules: - правила для модулей
+            loader'ы работают с файлами, с которыми не может обрабатывать webpack
+
+devServer: { - запускает сервер на том порте, который мы указали
+        port: 4200,
+        open: true
+    }
